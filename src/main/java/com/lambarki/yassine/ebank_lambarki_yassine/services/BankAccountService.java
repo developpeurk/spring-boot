@@ -19,4 +19,5 @@ public interface BankAccountService {
      void debit(String accountId, double amount, String description) throws BankAccountNotFoundException, BlanceNotSufficientException;
      void credit(String accountId, double amount, String description) throws BankAccountNotFoundException;
      void transfer(String accountIdSource, String accountIdDestination, double amount) throws BankAccountNotFoundException, BlanceNotSufficientException;
+     List<BankAccount> bankAccountList();
 }

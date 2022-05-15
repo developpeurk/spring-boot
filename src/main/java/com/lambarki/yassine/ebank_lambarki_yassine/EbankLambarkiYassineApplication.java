@@ -3,6 +3,8 @@ package com.lambarki.yassine.ebank_lambarki_yassine;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.*;
 import com.lambarki.yassine.ebank_lambarki_yassine.enums.AccountStatus;
 import com.lambarki.yassine.ebank_lambarki_yassine.enums.OperationType;
+import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BankAccountNotFoundException;
+import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BlanceNotSufficientException;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.CustomerNotFoundException;
 import com.lambarki.yassine.ebank_lambarki_yassine.repositories.AccountOperationRepository;
 import com.lambarki.yassine.ebank_lambarki_yassine.repositories.BankAccountRepository;
@@ -14,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 
@@ -38,11 +41,19 @@ public class EbankLambarkiYassineApplication {
                 try {
                     bankAccountService.saveCurrentBankAccount(Math.random()*90000, 9000,customer.getId());
                     bankAccountService.saveSavingBankAccount(Math.random()*12000, 5.5, customer.getId());
+                    List<BankAccount> bankAccounts = bankAccountService.bankAccountList();
+                    for(BankAccount bankAccount: bankAccounts){
+                        for (int i = 0; i < 10; i++) {
+                            bankAccountService.credit(bankAccount.getId(),10000+Math.random()*120000, "Credit");
+                            bankAccountService.debit(bankAccount.getId(), 1000+Math.random()*90000 , "Debit");
+                        }
+                    }
                 } catch (CustomerNotFoundException e) {
+                    e.printStackTrace();
+                } catch (BankAccountNotFoundException | BlanceNotSufficientException e) {
                     e.printStackTrace();
                 }
             });
-
         };
     }
 
