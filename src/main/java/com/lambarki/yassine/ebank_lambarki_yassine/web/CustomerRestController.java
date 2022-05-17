@@ -1,7 +1,6 @@
 package com.lambarki.yassine.ebank_lambarki_yassine.web;
 
 import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CustomerDTO;
-import com.lambarki.yassine.ebank_lambarki_yassine.entities.Customer;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.CustomerNotFoundException;
 import com.lambarki.yassine.ebank_lambarki_yassine.services.BankAccountService;
 import lombok.AllArgsConstructor;
