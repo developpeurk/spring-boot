@@ -1,10 +1,12 @@
 package com.lambarki.yassine.ebank_lambarki_yassine.services;
 
+import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CustomerDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.*;
 import com.lambarki.yassine.ebank_lambarki_yassine.enums.OperationType;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BankAccountNotFoundException;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BlanceNotSufficientException;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.CustomerNotFoundException;
+import com.lambarki.yassine.ebank_lambarki_yassine.mappers.BankAccountMapperImpl;
 import com.lambarki.yassine.ebank_lambarki_yassine.repositories.AccountOperationRepository;
 import com.lambarki.yassine.ebank_lambarki_yassine.repositories.BankAccountRepository;
 import com.lambarki.yassine.ebank_lambarki_yassine.repositories.CustomerRepository;
@@ -14,9 +16,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -27,7 +31,7 @@ public class BankAccountServiceImpl implements BankAccountService{
     private CustomerRepository customerRepository;
     private BankAccountRepository bankAccountRepository;
     private AccountOperationRepository accountOperationRepository;
-    
+    private BankAccountMapperImpl dtoMapper;
    //Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     @Override
@@ -73,8 +77,18 @@ public class BankAccountServiceImpl implements BankAccountService{
 
 
     @Override
-    public List<Customer> listCustomers() {
-        return customerRepository.findAll();
+    public List<CustomerDTO> listCustomers() {
+        List<Customer> customers = customerRepository.findAll();
+//        List<CustomerDTO> customerDTOS = new ArrayList<>();
+//        for(Customer customer: customers){
+//            CustomerDTO customerDTO = dtoMapper.fromCustomer(customer);
+//            customerDTOS.add(customerDTO);
+//        }
+//        return customerDTOS;
+        List<CustomerDTO> customerDTOS = customers.stream()
+                                                    .map(customer -> dtoMapper.fromCustomer(customer))
+                                                    .collect(Collectors.toList());
+        return customerDTOS;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.lambarki.yassine.ebank_lambarki_yassine.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
