@@ -3,7 +3,6 @@ package com.lambarki.yassine.ebank_lambarki_yassine.services;
 import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CustomerDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.BankAccount;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.CurrentAccount;
-import com.lambarki.yassine.ebank_lambarki_yassine.entities.Customer;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.SavingAccount;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BankAccountNotFoundException;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BlanceNotSufficientException;
