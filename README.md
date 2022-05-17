@@ -8,3 +8,9 @@ http://localhost:8085/swagger-ui/index.html
 
 ![swagger](/images/swagger.png)
 
+```
+http://localhost:8085/v3/api-docs
+``` 
+
+![api doc](/images/apidoc.png)
+
