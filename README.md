@@ -1,4 +1,4 @@
-# spring-boot
+# Spring-boot  - Digital Banking
 projet spring boot Master M1 (backend  + front end) Yassine Lambarki
 
 ## Swagger V3.0
