@@ -1,5 +1,6 @@
 package com.lambarki.yassine.ebank_lambarki_yassine;
 
+import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CustomerDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.*;
 import com.lambarki.yassine.ebank_lambarki_yassine.enums.AccountStatus;
 import com.lambarki.yassine.ebank_lambarki_yassine.enums.OperationType;
@@ -31,7 +32,7 @@ public class EbankLambarkiYassineApplication {
     CommandLineRunner commandLineRunnerTest(BankAccountService bankAccountService){
         return args -> {
             Stream.of("Hassan", "Imane", "Mohamed").forEach(name->{
-                Customer customer = new Customer();
+                CustomerDTO customer = new CustomerDTO();
                 customer.setName(name);
                 customer.setEmail(name + "@gmail.com");
                 bankAccountService.saveCustomer(customer);
