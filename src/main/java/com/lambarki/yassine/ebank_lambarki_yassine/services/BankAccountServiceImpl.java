@@ -1,9 +1,6 @@
 package com.lambarki.yassine.ebank_lambarki_yassine.services;
 
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.BankAccountDTO;
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CurrentBankAccountDTO;
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CustomerDTO;
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.SavingBankAccountDTO;
+import com.lambarki.yassine.ebank_lambarki_yassine.dtos.*;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.*;
 import com.lambarki.yassine.ebank_lambarki_yassine.enums.OperationType;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BankAccountNotFoundException;
@@ -186,6 +183,14 @@ public class BankAccountServiceImpl implements BankAccountService{
     @Override
     public void deleteCustomer(Long customerId){
         customerRepository.deleteById(customerId);
+    }
+
+
+    @Override
+    public List<AccountOperationDTO> accountHistory(String accountId){
+        List<AccountOperation> accountOperations = accountOperationRepository.findByBankAccountId(accountId);
+        return accountOperations.stream().map(op->dtoMapper.fromAccountOperation(op)).collect(Collectors.toList());
+
     }
 
 }

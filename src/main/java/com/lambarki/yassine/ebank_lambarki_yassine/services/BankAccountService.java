@@ -1,9 +1,6 @@
 package com.lambarki.yassine.ebank_lambarki_yassine.services;
 
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.BankAccountDTO;
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CurrentBankAccountDTO;
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CustomerDTO;
-import com.lambarki.yassine.ebank_lambarki_yassine.dtos.SavingBankAccountDTO;
+import com.lambarki.yassine.ebank_lambarki_yassine.dtos.*;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.BankAccount;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.CurrentAccount;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.SavingAccount;
@@ -29,4 +26,6 @@ public interface BankAccountService {
      CustomerDTO updateCustomer(CustomerDTO customerDTO);
 
     void deleteCustomer(Long customerId);
+
+    List<AccountOperationDTO> accountHistory(String accountId);
 }

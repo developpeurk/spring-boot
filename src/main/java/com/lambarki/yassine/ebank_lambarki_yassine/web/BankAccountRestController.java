@@ -1,5 +1,6 @@
 package com.lambarki.yassine.ebank_lambarki_yassine.web;
 
+import com.lambarki.yassine.ebank_lambarki_yassine.dtos.AccountOperationDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.dtos.BankAccountDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.exceptions.BankAccountNotFoundException;
 import com.lambarki.yassine.ebank_lambarki_yassine.services.BankAccountService;
@@ -26,10 +27,15 @@ public class BankAccountRestController {
         return bankAccountService.getBankAccount(accountId);
     }
 
-    @GetMapping("/")
+    @GetMapping("/accounts")
     public List<BankAccountDTO> listAccounts(){
         return bankAccountService.bankAccountList();
     }
 
 
+    @GetMapping("/accounts/{accountId}/operations")
+    public List<AccountOperationDTO> getHistory(@PathVariable String accountId) {
+        return bankAccountService.accountHistory(accountId);
+
+    }
 }

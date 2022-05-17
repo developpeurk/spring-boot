@@ -1,8 +1,10 @@
 package com.lambarki.yassine.ebank_lambarki_yassine.mappers;
 
+import com.lambarki.yassine.ebank_lambarki_yassine.dtos.AccountOperationDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CurrentBankAccountDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.dtos.CustomerDTO;
 import com.lambarki.yassine.ebank_lambarki_yassine.dtos.SavingBankAccountDTO;
+import com.lambarki.yassine.ebank_lambarki_yassine.entities.AccountOperation;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.CurrentAccount;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.Customer;
 import com.lambarki.yassine.ebank_lambarki_yassine.entities.SavingAccount;
@@ -53,4 +55,11 @@ public class BankAccountMapperImpl {
         currentAccount.setCustomer(fromCustomerDTO(currentBankAccountDTO.getCustomerDTO()));
         return currentAccount;
     }
+
+    public AccountOperationDTO fromAccountOperation(AccountOperation accountOperation){
+        AccountOperationDTO accountOperationDTO = new AccountOperationDTO();
+        BeanUtils.copyProperties(accountOperation, accountOperationDTO);
+        return accountOperationDTO;
+    }
+
 }
