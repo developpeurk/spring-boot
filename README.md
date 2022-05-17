@@ -3,5 +3,5 @@ projet spring boot Master M1 (backend  + front end) Yassine Lambarki
 
 ##Swagger V3.0
 ```
-http://localhost:8085/swagger-ui
+http://localhost:8085/swagger-ui](http://localhost:8085/swagger-ui/index.html
 ```  
