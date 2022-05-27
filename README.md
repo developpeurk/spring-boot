@@ -14,7 +14,7 @@ projet spring boot Master M1 (backend  + front end) Yassine Lambarki
 - [x] Création des REST API (Web services Restful)
 - [x] Test des API Restful avec Postman
 - [x] Génération de la documentation Swagger (OPen API) des API REST
-- [ ] Création de la partie Frontend avec Angular
+- [x] Création de la partie Frontend avec Angular
 - [ ] Sécurité avec Spring Security et Json Web Token
 
 
