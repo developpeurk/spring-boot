@@ -1,27 +1,23 @@
-# DigitalBankingWebFront
+# Angular  - Digital Banking
+projet spring boot Master M1 (backend  + front end) Yassine Lambarki
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
-## Development server
+### Interfaces
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+##### La liste des clients
 
-## Code scaffolding
+![Liste des clients](/images/liste-customers.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##### Chercher un client
 
-## Build
+![Chercher un client](/images/search-for-someone.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+##### Ajouter un client
 
-## Running unit tests
+![Ajouter un client](/images/add-new-customer.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+##### Supprimer un client
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![supprimer un client](/images/delete-a-customer.png)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
