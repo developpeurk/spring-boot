@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomerService} from "../services/customer.service";
 import {Observable} from "rxjs";
+import {Customer} from "../model/customer.model";
 
 @Component({
   selector: 'app-customers',
@@ -9,7 +10,7 @@ import {Observable} from "rxjs";
 })
 export class CustomersComponent implements OnInit {
 
-  public customers$!: Observable<any>
+  public customers$!: Observable<Array<Customer>>
   errorMessage!: string;
   constructor(private customerService:CustomerService) { }
 
