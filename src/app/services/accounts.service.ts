@@ -12,6 +12,6 @@ export class AccountsService {
   constructor(private http: HttpClient) { }
 
   public getAccount(accountId: String, page: number, size: number):Observable<AccountDetails>{
-    return this.http.get<AccountDetails>(environment.backendHost + accountId + "/pageOperations?page="+page + "&size="+size)
+    return this.http.get<AccountDetails>(environment.backendHost +"/accounts/" + accountId + "/pageOperations?page="+page + "&size="+size)
   }
 }

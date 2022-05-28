@@ -13,6 +13,16 @@
               </button>
             </div>
           </form>
+         <ng-container *ngIf="account$ | async as accountDetails">
+           <div class="mb-3">
+             <label>Account Id: </label>
+             <label><strong>{{accountDetails.accountId}}</strong> </label>
+           </div>
+           <div class="mb-3">
+             <label>Balance: </label>
+             <label><strong>{{accountDetails.balance}}</strong> </label>
+           </div>
+         </ng-container>
         </div>
       </div>
     </div>
