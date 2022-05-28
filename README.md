@@ -41,3 +41,7 @@ http://localhost:8085/v3/api-docs
 
 ![api doc](/images/apidoc.png)
 
+
+#### Consulter un compte
+![Check account](/images/check_account.png)
+
