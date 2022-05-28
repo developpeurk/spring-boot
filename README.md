@@ -23,7 +23,7 @@ projet spring boot Master M1 (backend  + front end) Yassine Lambarki
 
 
 
-##### Consulter les opération d'un compte
+##### Consulter les opérations d'un compte
 
 ![supprimer un client](/images/search_account.png)
 
