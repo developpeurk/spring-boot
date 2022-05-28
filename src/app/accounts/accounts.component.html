@@ -20,8 +20,21 @@
            </div>
            <div class="mb-3">
              <label>Balance: </label>
-             <label><strong>{{accountDetails.balance}}</strong> </label>
+             <label><strong>{{accountDetails.balance | number :'1.2-2'}}</strong> </label>
            </div>
+           <table class="table">
+             <thead>
+             <th>ID</th><th>Date</th><th>Type</th><th class="text-end">Amount</th>
+             </thead>
+             <tbody>
+             <tr *ngFor="let op of accountDetails.accountOperationDTOS">
+               <td>{{op.id}}</td>
+               <td>{{op.operationDate | date: 'dd-MM-yyyy'}}</td>
+               <td>{{op.type}}</td>
+               <td class="text-end">{{op.amount | number :'1.2-2'}}</td>
+             </tr>
+             </tbody>
+           </table>
          </ng-container>
         </div>
       </div>
