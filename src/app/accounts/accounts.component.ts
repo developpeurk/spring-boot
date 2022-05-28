@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Form, FormBuilder, FormGroup} from "@angular/forms";
 import {AccountsService} from "../services/accounts.service";
 import {Observable} from "rxjs";
 import {AccountDetails} from "../model/account.model";
@@ -16,6 +16,7 @@ export class AccountsComponent implements OnInit {
   currentPage: number = 0
   pageSize: number = 5
   account$!: Observable<AccountDetails>
+  operationFormGroup!: FormGroup
 
 
   constructor(private fb: FormBuilder, private accountService: AccountsService) { }
@@ -23,6 +24,12 @@ export class AccountsComponent implements OnInit {
   ngOnInit(): void {
     this.accountFormGroup = this.fb.group({
       accountId: this.fb.control("")
+    })
+    this.operationFormGroup = this.fb.group({
+      operationType: this.fb.control(null),
+      amount: this.fb.control(0),
+      description : this.fb.control(null),
+      accountDestionation: this.fb.control(null)
     })
   }
 
@@ -34,5 +41,9 @@ export class AccountsComponent implements OnInit {
   gotoPage(page: number) {
     this.currentPage = page
     this.handleSearchAccount()
+  }
+
+  handleAccountOperation() {
+
   }
 }

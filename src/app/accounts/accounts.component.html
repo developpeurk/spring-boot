@@ -29,7 +29,7 @@
              <tbody>
              <tr *ngFor="let op of accountDetails.accountOperationDTOS">
                <td>{{op.id}}</td>
-               <td>{{op.operationDate | date: 'dd-MM-yyyy'}}</td>
+               <td>{{op.operationDate | date: 'dd-MM-yyyy - HH:mm:ss'}}</td>
                <td>{{op.type}}</td>
                <td class="text-end">{{op.amount | number :'1.2-2'}}</td>
              </tr>
@@ -45,6 +45,41 @@
         </div>
       </div>
     </div>
-    <div class="col col-md-6"></div>
+    <div class="col col-md-6">
+      <div class="card" *ngIf="account$">
+        <div class="card-header">Operations</div>
+        <div class="card-body">
+          <form [formGroup]="operationFormGroup" (ngSubmit)="handleAccountOperation()" method="post">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" formControlName="operationType" value="DEBIT" id="debit">
+              <label class="form-check-label">DEBIT: </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" formControlName="operationType" value="CREDIT" id="credit">
+              <label class="form-check-label">CREDIT: </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" formControlName="operationType" value="TRANSFER" id="transfer">
+              <label class="form-check-label">TRANSFER: </label>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Account destionation: </label>
+              <input type="text" formControlName="accountDestination" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Amount: </label>
+              <input type="text" formControlName="amount" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Description: </label>
+              <input type="text" formControlName="description" class="form-control">
+            </div>
+            <div class="d-grid mt-2">
+              <button class="btn btn-success">Save Operation</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
