@@ -29,7 +29,7 @@ export class AccountsComponent implements OnInit {
       operationType: this.fb.control(null),
       amount: this.fb.control(0),
       description : this.fb.control(null),
-      accountDestionation: this.fb.control(null)
+      accountDestination: this.fb.control(null)
     })
   }
 
@@ -44,6 +44,46 @@ export class AccountsComponent implements OnInit {
   }
 
   handleAccountOperation() {
+    let accoundId: string = this.accountFormGroup.value.accountId
+    let operationType = this.operationFormGroup.value.operationType
+    let amount: number = this.operationFormGroup.value.amount
+    let description: string = this.operationFormGroup.value.description
+    let accountDestination: string = this.operationFormGroup.value.accountDestination
+
+
+   // const { accoundId, operationType, amount, description, accountDestination, accountSource }: { accoundId: string, operationType: string, amount: number, description:string, accountDestination:string, accountSource:String  } = this.operationFormGroup.value
+
+    if(operationType == 'DEBIT'){
+        this.accountService.debit(accoundId, amount, description).subscribe({
+          next: (data) => {
+            alert("Success DEBIT")
+            this.operationFormGroup.reset()
+            this.handleSearchAccount()
+          }, error: err => {
+            console.log(err)
+          }
+        })
+    } else if(operationType == 'CREDIT'){
+        this.accountService.credit(accoundId, amount, description).subscribe({
+          next: (data) => {
+            alert("Success credit")
+            this.operationFormGroup.reset()
+            this.handleSearchAccount()
+          }, error: err => {
+            console.log(err)
+          }
+        })
+    } else if(operationType == 'TRANSFER'){
+      this.accountService.transfer(accoundId,accountDestination, amount, description).subscribe({
+        next: (data) => {
+          alert("Success TRANSFER")
+          this.operationFormGroup.reset()
+          this.handleSearchAccount()
+        }, error: err => {
+          console.log(err)
+        }
+      })
+    }
 
   }
 }

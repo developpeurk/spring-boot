@@ -62,8 +62,8 @@
               <input type="radio" formControlName="operationType" value="TRANSFER" id="transfer">
               <label class="form-check-label">TRANSFER: </label>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Account destionation: </label>
+            <div class="mb-3" *ngIf="operationFormGroup.value.operationType=='TRANSFER'">
+              <label class="form-label">Account destination: </label>
               <input type="text" formControlName="accountDestination" class="form-control">
             </div>
             <div class="mb-3">
