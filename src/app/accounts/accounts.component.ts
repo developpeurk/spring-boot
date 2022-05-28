@@ -30,4 +30,9 @@ export class AccountsComponent implements OnInit {
     let accountId: string = this.accountFormGroup.value.accountId
     this.account$=this.accountService.getAccount(accountId, this.currentPage, this.pageSize)
   }
+
+  gotoPage(page: number) {
+    this.currentPage = page
+    this.handleSearchAccount()
+  }
 }
